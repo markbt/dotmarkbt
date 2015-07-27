@@ -65,7 +65,10 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.tex set tw=72
 
   " When editing a file, always jump to the last cursor position
-  autocmd BufReadPost * if line("'\"") | exe "'\"" | endif
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
 
   augroup cprog
     " Remove all cprog autocommands
@@ -81,31 +84,6 @@ if has("autocmd")
     autocmd FileType c,cpp  syn keyword cType uint8_t uint16_t uint32_t uint64_t
   augroup END
 
-  augroup gzip
-    " Remove all gzip autocommands
-    au!
-
-    " Enable editing of gzipped files
-    "   read: set binary mode before reading the file
-    "         uncompress text in buffer after reading
-    "   write: compress file after writing
-    "   append: uncompress file, append, compress file
-    autocmd BufReadPre,FileReadPre *.gz set bin
-    autocmd BufReadPost,FileReadPost *.gz let ch_save = &ch|set ch=2
-    autocmd BufReadPost,FileReadPost *.gz set modifiable
-    autocmd BufReadPost,FileReadPost *.gz '[,']!gunzip
-    autocmd BufReadPost,FileReadPost *.gz set nobin
-    autocmd BufReadPost,FileReadPost *.gz let &ch = ch_save|unlet ch_save
-    autocmd BufReadPost,FileReadPost *.gz execute ":doautocmd BufReadPost " . expand("%:r")
-
-    autocmd BufWritePost,FileWritePost *.gz !mv <afile> <afile>:r
-    autocmd BufWritePost,FileWritePost *.gz !gzip <afile>:r
-
-    autocmd FileAppendPre   *.gz !gunzip <afile>
-    autocmd FileAppendPre   *.gz !mv <afile>:r <afile>
-    autocmd FileAppendPost  *.gz !mv <afile> <afile>:r
-    autocmd FileAppendPost  *.gz !gzip <afile>:r
-  augroup END
 endif
 
 " Don't use Ex mode, use Q for formatting
