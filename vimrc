@@ -7,7 +7,9 @@ set nocompatible
 set noswapfile
 
 " Disable folding
-set nofoldenable
+if has("folding")
+  set nofoldenable
+endif
 
 " I always use dark backgrounds
 set background=dark
