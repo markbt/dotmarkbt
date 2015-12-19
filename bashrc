@@ -42,7 +42,7 @@ then
         __pscolor=31
     else
         case $HOSTNAME in
-        pocky|twirl)
+        pocky|twirl|toblerone)
             # laptops - green
             __pscolor=32
             ;;
@@ -50,7 +50,7 @@ then
             # desktops - yellow
             __pscolor=33
             ;;
-        mars-*|pc????-*)
+        mars-*|toblerone-*|pc????-*)
             # virtual machines - cyan
             __pscolor=36
             ;;
