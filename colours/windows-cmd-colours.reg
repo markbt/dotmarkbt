@@ -1,0 +1,46 @@
+Windows Registry Editor Version 5.00 
+
+; Registry file that maps the solarized palette to the 16 avaliable colors
+; in a Windows command prompt. Note, hex values in the table are RGB but byte
+; ordering of a DWORD is BGR, e.g. "ColorTable<##>"=dword:00<B><G><R>
+;
+; NR  cmd.exe      PowerShell   
+; --  -------      -----------  
+; 00  Black        Black        
+; 01  Blue         DarkBlue     
+; 02  Green        DarkGreen    
+; 03  Aqua         DarkCyan     
+; 04  Red          DarkRed      
+; 05  Purple       DarkMagenta  
+; 06  Yellow       DarkYellow   
+; 07  White        Gray         
+; 08  Gray         DarkGray     
+; 09  LightBlue    Blue         
+; 10  LightGreen   Green        
+; 11  LightAqua    Cyan         
+; 12  LightRed     Red          
+; 13  LightPurple  Magenta      
+; 14  LightYellow  Yellow       
+; 15  BrightWhite  White        
+;
+
+[HKEY_CURRENT_USER\Console]
+"ColorTable00"=dword:00000000
+"ColorTable01"=dword:00db5454
+"ColorTable02"=dword:0054db54
+"ColorTable03"=dword:00dbdb54
+"ColorTable04"=dword:005454db
+"ColorTable05"=dword:00db54db
+"ColorTable06"=dword:0054dbdb
+"ColorTable07"=dword:00c8c8c8
+"ColorTable08"=dword:004a4a4a
+"ColorTable09"=dword:00e99696
+"ColorTable10"=dword:0096e996
+"ColorTable11"=dword:00e9e996
+"ColorTable12"=dword:009696e9
+"ColorTable13"=dword:00e996e9
+"ColorTable14"=dword:0096e9e9
+"ColorTable15"=dword:00ffffff
+"ScreenColors"=dword:00000007
+"PopupColors"=dword:000000f6
+
