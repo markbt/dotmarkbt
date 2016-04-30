@@ -40,8 +40,9 @@ set statusline+=0x%-8B                       " character value
 set statusline+=%-14(%l,%c%V%)               " line, character
 set statusline+=%<%P                         " file position
 
-" Show line numbers
+" Show line numbers and don't wrap lines
 set number
+set nowrap
 
 " Search for tags in parent directories
 set tags=tags;/

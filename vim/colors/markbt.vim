@@ -6,7 +6,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "mobility"
+let colors_name = "markbt"
 
 function! s:H(group, gfg, gbg, gstyle, cfg, cbg, cstyle, tfg, tbg, tstyle)
 
@@ -21,10 +21,10 @@ function! s:H(group, gfg, gbg, gstyle, cfg, cbg, cstyle, tfg, tbg, tstyle)
       let l:cmd = l:cmd." ctermfg=".a:tfg
     endif
     if !empty(a:tbg)
-      let l:cmd = l:cmd." ctermbg=".a:tfg
+      let l:cmd = l:cmd." ctermbg=".a:tbg
     endif
     if !empty(a:tstyle)
-      let l:cmd = l:cmd." term=".a:tstyle
+      let l:cmd = l:cmd." cterm=".a:tstyle
     endif
 
     if l:cmd != ""
@@ -72,14 +72,14 @@ endfunction
 
 call s:H("Normal",       "", "", "",            s:CGREY(20), "", "",                    "", "", "")
 call s:H("ColorColumn",  "", "", "",            "", s:CGREY(2), "",                     "", "", "")
-call s:H("StatusLine",   "", "", "",            "0", s:CRGB(0,4,5), "NONE",             "", "", "")
+call s:H("StatusLine",   "", "", "",            "0", s:CRGB(0,4,5), "NONE",             "6", "", "")
 call s:H("Visual",       "", "", "",            "", s:CGREY(4), "",                     "", "", "")
 
 call s:H("CursorLine",   "", "", "",            "", s:CGREY(4), "NONE",                 "", "", "")
 call s:H("CursorColumn", "", "", "",            "", s:CGREY(2), "NONE",                 "", "", "")
 call s:H("MatchParen",   "", "", "",            "", s:CRGB(0,1,1), "",                  "", "", "")
 
-call s:H("LineNr",       "", "", "",            s:CGREY(8), s:CGREY(4), "NONE",         "", "", "")
+call s:H("LineNr",       "", "", "",            s:CGREY(8), s:CGREY(4), "NONE",         "7", "8", "reverse")
 call s:H("CursorLineNr", "", "", "",            "", s:CGREY(6), "NONE",                 "", "", "")
 
 call s:H("IncSearch",    "", "", "",            s:CRGB(0,0,0), s:CRGB(1,1,0), "NONE",   "", "", "")
@@ -94,10 +94,10 @@ call s:H("TabLineSel",   "", "", "",            "11", "", "",                   
 
 call s:H("",             "", "", "",            "", "", "",                             "", "", "")
 
-call s:H("Comment",      "#808080", "", "",     s:CGREY(10), "", "",                     0, "", "bold")
+call s:H("Comment",      "#808080", "", "",     s:CGREY(10), "", "",                    "0", "", "bold")
 
-call s:H("Type",         "", "", "",            s:CRGB(1,5,1), "", "",                   "", "", "")
-call s:H("mbtSubType",   "", "", "",            s:CRGB(0,3,0), "", "",                   "", "", "")
+call s:H("Type",         "", "", "",            s:CRGB(1,5,1), "", "",                  "", "", "")
+call s:H("mbtSubType",   "", "", "",            s:CRGB(0,3,0), "", "",                  "2", "", "NONE")
 
 delfunction s:H   
 delfunction s:CRGB

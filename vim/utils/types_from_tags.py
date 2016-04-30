@@ -26,7 +26,7 @@ def main():
             if fields[3] == 's':
                 print fields[0]
         if len(fields) > 4:
-            if fields[4].startswith('typeref:'):
+            if fields[4] == 't' and fields[4].startswith('typeref:'):
                 print fields[0]
 
 if __name__ == '__main__':
