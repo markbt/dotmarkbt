@@ -40,6 +40,9 @@ set statusline+=0x%-8B                       " character value
 set statusline+=%-14(%l,%c%V%)               " line, character
 set statusline+=%<%P                         " file position
 
+" Show line numbers
+set number
+
 " Search for tags in parent directories
 set tags=tags;/
 
@@ -138,8 +141,15 @@ if &term=="xterm"
      set t_Sf=^[3%dm
 endif
 
+" Extra keybindings
+" Scroll around with Alt+arrow keys
+map <A-Up> 4<C-y>
+map <A-Down> 4<C-e>
+map <A-Left> 8zh
+map <A-Right> 8zl
+
 " Read local vimrc
-if filereadable("$HOME/.vimrc_local")
+if filereadable($HOME."/.vimrc_local")
   source $HOME/.vimrc_local
 endif
 
