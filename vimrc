@@ -124,15 +124,13 @@ if has("gui_running")
   set guioptions-=m
   set guioptions-=T
   set cursorline
-  let &colorcolumn="80,".join(range(120,200),",")
 
   colorscheme molokai
   hi clear Search
   hi Search guibg=#373b3d
   hi ColorColumn ctermbg=1 guibg=#1e2021
   hi CursorLine guibg=#2d3031
-  hi TrailSpace guibg=#0e0f0f
-  autocmd BufNewFile,BufReadPost * syn match TrailSpace /\s\+$/
+  hi mbtTrailSpace guibg=#0e0f0f
 endif
 
 " Work around buggy xterms

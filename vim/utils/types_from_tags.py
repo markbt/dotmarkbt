@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import re
 import sys
 
 def find_tag_file():
@@ -20,11 +21,21 @@ def main():
     if not tagfile:
         sys.exit(1)
 
+    filename_re = re.compile('.*\.[ch](pp)?$')
+    subtypes = set()
+    preprocs = set()
+
     for line in open(tagfile):
         fields = line[:-1].split('\t')
         if len(fields) > 3:
-            if fields[3] in ['c', 's', 't']:
-                print fields[0]
+            if filename_re.match(fields[1]):
+                if fields[3] in ['c', 'n', 't']:
+                    subtypes.add(fields[0])
+                if fields[3] in ['d']:
+                    preprocs.add(fields[0])
+
+    print "syn keyword cSubType", ' '.join(subtypes)
+    print "syn keyword cPreProc", ' '.join(preprocs)
 
 if __name__ == '__main__':
     main()

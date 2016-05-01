@@ -74,9 +74,11 @@ call s:H("Normal",       "", "", "",            s:CGREY(20), "", "",            
 call s:H("ColorColumn",  "", "", "",            "", s:CGREY(2), "",                     "", "", "")
 call s:H("StatusLine",   "", "", "",            "0", s:CRGB(0,4,5), "NONE",             "6", "", "")
 call s:H("Visual",       "", "", "",            "", s:CGREY(4), "",                     "", "", "")
+call s:H("mbtTrailSpace","", "", "",            "", s:CRGB(0,0,1), "",                  "", "4", "")
 
 call s:H("CursorLine",   "", "", "",            "", s:CGREY(4), "NONE",                 "", "", "")
 call s:H("CursorColumn", "", "", "",            "", s:CGREY(2), "NONE",                 "", "", "")
+call s:H("ColorColumn" , "", "", "",            "", s:CGREY(2), "NONE",                 "", "4", "")
 call s:H("MatchParen",   "", "", "",            "", s:CRGB(0,1,1), "",                  "", "", "")
 
 call s:H("Folded",       "", "", "",            "", s:CGREY(4), "",                             "", "", "")
