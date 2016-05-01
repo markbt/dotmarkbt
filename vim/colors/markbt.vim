@@ -79,6 +79,8 @@ call s:H("CursorLine",   "", "", "",            "", s:CGREY(4), "NONE",         
 call s:H("CursorColumn", "", "", "",            "", s:CGREY(2), "NONE",                 "", "", "")
 call s:H("MatchParen",   "", "", "",            "", s:CRGB(0,1,1), "",                  "", "", "")
 
+call s:H("Folded",       "", "", "",            "", s:CGREY(4), "",                             "", "", "")
+
 call s:H("LineNr",       "", "", "",            s:CGREY(8), s:CGREY(4), "NONE",         "7", "8", "reverse")
 call s:H("CursorLineNr", "", "", "",            "", s:CGREY(6), "NONE",                 "", "", "")
 

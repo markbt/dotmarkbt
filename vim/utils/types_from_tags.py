@@ -21,12 +21,9 @@ def main():
         sys.exit(1)
 
     for line in open(tagfile):
-        fields = line.split('\t')
+        fields = line[:-1].split('\t')
         if len(fields) > 3:
-            if fields[3] in 'cs':
-                print fields[0]
-        if len(fields) > 4:
-            if fields[4] == 't' and fields[4].startswith('typeref:'):
+            if fields[3] in ['c', 's', 't']:
                 print fields[0]
 
 if __name__ == '__main__':

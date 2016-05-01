@@ -149,6 +149,9 @@ map <A-Down> 4<C-e>
 map <A-Left> 8zh
 map <A-Right> 8zl
 
+" Switch windows in insert mode
+imap <C-w> <C-o><C-w>
+
 " Read local vimrc
 if filereadable($HOME."/.vimrc_local")
   source $HOME/.vimrc_local
