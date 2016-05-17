@@ -150,6 +150,16 @@ map <A-Right> 8zl
 " Switch windows in insert mode
 imap <C-w> <C-o><C-w>
 
+" Stay in visual mode when indenting
+vnoremap < <gv
+vnoremap > >gv
+
+" Y: yank to end of line
+noremap Y y$
+
+" Ctrl-E: Jump to end
+inoremap <C-e> <C-o>$
+
 " Read local vimrc
 if filereadable($HOME."/.vimrc_local")
   source $HOME/.vimrc_local

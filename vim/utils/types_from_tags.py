@@ -34,8 +34,10 @@ def main():
                 if fields[3] in ['d']:
                     preprocs.add(fields[0])
 
-    print "syn keyword cSubType", ' '.join(subtypes)
-    print "syn keyword cPreProc", ' '.join(preprocs)
+    if subtypes:
+        print "syn keyword cSubType", ' '.join(subtypes)
+    if preprocs:
+        print "syn keyword cPreProc", ' '.join(preprocs)
 
 if __name__ == '__main__':
     main()

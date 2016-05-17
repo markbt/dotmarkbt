@@ -9,3 +9,5 @@
 [user]
     email = markbt@efaref.net
     name = Mark Thomas
+[core]
+	excludesfile = /home/mark/.gitignore
