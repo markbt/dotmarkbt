@@ -98,7 +98,8 @@ call s:H("TabLineSel",   "", "", "",            "11", "", "",                   
 
 call s:H("",             "", "", "",            "", "", "",                             "", "", "")
 
-call s:H("Comment",      "#808080", "", "",     s:CGREY(10), "", "",                    "0", "", "bold")
+call s:H("Comment",      "#808080", "", "",     s:CGREY(12), "", "",                    "0", "", "bold")
+call s:H("mbtTemplate",  "", "", "",            s:CRGB(4,2,0), "", "",                  "", "", "")
 
 call s:H("Type",         "", "", "",            s:CRGB(1,5,1), "", "",                  "", "", "")
 call s:H("mbtSubType",   "", "", "",            s:CRGB(0,3,0), "", "",                  "2", "", "NONE")

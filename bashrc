@@ -92,4 +92,44 @@ then
     done
 fi
 
+
+upto ()
+{
+    if [ -z "$1" ]; then
+        return
+    fi
+    local upto=$1
+    cd "${PWD/\/$upto\/*//$upto}"
+}
+
+_upto()
+{
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    local d=${PWD//\//\ }
+    COMPREPLY=( $( compgen -W "$d" -- "$cur" ) )
+}
+complete -F _upto upto
+
+jd(){
+    if [ -z "$1" ]; then
+        echo "Usage: jd [directory]";
+        return 1
+    else
+        cd $(find . -type d | /bin/grep "/$1\$")
+    fi
+}
+
+_jd()
+{
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  local d=$(find . -name '.git' -prune -o -type d -print | sed 's/.*\///' | sort | uniq -u | less)
+  COMPREPLY=( $( compgen -W "$d" -- "$cur" ) )
+}
+complete -F _jd jd
+
+ui()
+{
+  cd $HOME/icp/$1
+}
+
 unset MAILCHECK
