@@ -87,8 +87,8 @@ if has("autocmd")
     "   For C and C++ files set formatting of comments and set C-indenting on.
     "   For other files switch it off.
     "   Don't change the order, it's important that the line with * comes first.
-    autocmd FileType *      set tabstop=4 sw=4 formatoptions=tcql nocindent comments&
-    autocmd FileType c,cpp  set tabstop=2 sw=2 formatoptions=cql nocindent comments=sr:/*,mb:*,el:*/,://
+    autocmd FileType *      set tabstop=4 sw=4 formatoptions=tcqlj nocindent comments&
+    autocmd FileType c,cpp  set tabstop=2 sw=2 formatoptions=cqlj nocindent comments=sr:/*,mb:*,el:*/,://
     autocmd FileType c,cpp  syn keyword cType  int8_t  int16_t  int32_t  int64_t  ssize_t
     autocmd FileType c,cpp  syn keyword cType uint8_t uint16_t uint32_t uint64_t
   augroup END
@@ -159,6 +159,12 @@ noremap Y y$
 
 " Ctrl-E: Jump to end
 inoremap <C-e> <C-o>$
+
+" Alt-L: Clear search highlight
+noremap <Esc>l :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+
+" Argwrap
+nnoremap <silent> <Esc>a :ArgWrap<cr>
 
 " Read local vimrc
 if filereadable($HOME."/.vimrc_local")
