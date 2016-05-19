@@ -50,18 +50,23 @@ set tags=tags;/
 " Enable incremental search
 set incsearch
 
-" Set defaul tabstop to four spaces and expand tabs to spaces
+" Set default tabstop to four spaces and expand tabs to spaces
 set tabstop=4
 set expandtab
 
 " Set shiftwidth to 4 spaces
 set shiftwidth=4
+set shiftround
 
 " Enable virtualedit in block mode
 set virtualedit=block
 
 " Sensible tab completion
 set wildmode=longest,list
+
+" Listchars
+set list
+set listchars=tab:→\ ,precedes:◄,extends:►
 
 " Autocommands
 if has("autocmd")
@@ -95,10 +100,10 @@ if has("autocmd")
 
 endif
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+" Don't use Ex mode, use Q to play a macro
+map Q @q
 
-" map Q to q
+" map :Q to :q
 command Q q
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -141,6 +146,33 @@ if &term=="xterm"
 endif
 
 " Extra keybindings
+
+" Space leader.  Spaaaaaace...
+let mapleader = "\<Space>"
+
+" Visual line mode
+nmap <Leader><Leader> V
+
+" Switch windows
+map <Leader><Up> <C-w><Up>
+map <Leader><Down> <C-w><Down>
+map <Leader><Left> <C-w><Left>
+map <Leader><Right> <C-w><Right>
+
+" Save file
+nnoremap <Leader>w :<C-u>update<CR>
+
+" Paste without yanking
+map <Leader>p "0p
+
+" Prevent silly q: error
+map q: :q
+
+" Jump to end of pasted text
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
 " Scroll around with Alt+arrow keys
 map <A-Up> 4<C-y>
 map <A-Down> 4<C-e>
@@ -165,6 +197,17 @@ noremap <Esc>l :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Argwrap
 nnoremap <silent> <Esc>a :ArgWrap<cr>
+
+" Smart home key
+noremap <expr> <silent> <Esc>[1~ col('.') == match(getline('.'),'\S\\|.$')+1 ? '0' : '^'
+imap <silent> <Esc>[1~ <C-O><Esc>[1~
+
+" vim = edit
+cabbrev vim edit
+
+" Signature should use gitgutter colours and gutter should always show
+let g:SignatureMarkTextHLDynamic = 1
+let g:gitgutter_sign_column_always = 1
 
 " Read local vimrc
 if filereadable($HOME."/.vimrc_local")

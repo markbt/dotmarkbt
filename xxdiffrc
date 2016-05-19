@@ -1,0 +1,5 @@
+Geometry: Maximize
+Accel.Exit: "Esc"
+DirDiffRecursive: True
+Show.VerticalLine: True
+Command.DiffFiles2: "diff -w -b -d"
