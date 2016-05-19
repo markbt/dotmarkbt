@@ -98,17 +98,26 @@ upto ()
     if [ -z "$1" ]; then
         return
     fi
-    local upto=$1
-    cd "${PWD/\/$upto\/*//$upto}/$2"
+    local newpath=$1
+    local upto=${newpath%%/*}
+    cd "${PWD/\/$upto\/*//$newpath}"
 }
 
 _upto()
 {
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    local d=${PWD//\//\ }
-    COMPREPLY=( $( compgen -W "$d" -- "$cur" ) )
+    local newpath=${COMP_WORDS[COMP_CWORD]}
+    local upto=${newpath%%/*}
+    local subpath=${newpath#*/}
+    if [[ "$subpath" = "$newpath" ]]
+    then
+      local d=${PWD//\//\ }
+      COMPREPLY=( $( compgen -S / -W "$d" -- "$upto" ) )
+    else
+      local b="${PWD/\/$upto\/*//$upto}"
+      COMPREPLY=( $( cd $b && compgen -P "$upto/" -S / -d "$subpath" ) )
+    fi
 }
-complete -F _upto upto
+complete -o nospace -F _upto upto
 
 jd(){
     if [ -z "$1" ]; then
