@@ -136,9 +136,16 @@ _jd()
 }
 complete -F _jd jd
 
-ui()
+home()
 {
-  cd $HOME/icp/$1
+  cd $HOME/$1
 }
+
+_home()
+{
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $( cd $HOME && compgen -S / -d "$cur" ) )
+}
+complete -o nospace -F _home home
 
 unset MAILCHECK
