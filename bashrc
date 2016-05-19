@@ -99,7 +99,7 @@ upto ()
         return
     fi
     local upto=$1
-    cd "${PWD/\/$upto\/*//$upto}"
+    cd "${PWD/\/$upto\/*//$upto}/$2"
 }
 
 _upto()

@@ -178,6 +178,10 @@ map <A-Up> 4<C-y>
 map <A-Down> 4<C-e>
 map <A-Left> 8zh
 map <A-Right> 8zl
+imap <A-Up> 4<C-y>
+imap <A-Down> 4<C-e>
+imap <A-Left> 8zh
+imap <A-Right> 8zl
 
 " Switch windows in insert mode
 imap <C-w> <C-o><C-w>
