@@ -63,10 +63,10 @@ then
 
     PROMPT_COMMAND="__rc=\$?;echo;"
     PROMPT_COMMAND+="[[ \$__rc -eq 0 ]] || echo -n -e '\e[31;1m'\$__rc' \e[0m';"
-    PROMPT_COMMAND+="echo -n -e '\e[$__pscolor;1m'\$USER@\${HOSTNAME%%.*}' \e[34;1m'\${PWD/\$HOME/\\~}'\e[0m';"
+    PROMPT_COMMAND+="echo -n -e '\e[0;$__pscolor;1;4m'\$USER@\${HOSTNAME%%.*}'\e[34m '\${PWD/\$HOME/\\~}'\e[0m';"
     if [[ $(type -t __git_ps1) == 'function' ]]
     then
-      PROMPT_COMMAND+="echo -n -e '\e[36m'\$(__git_ps1)'\e[0m';"
+      PROMPT_COMMAND+="echo -n -e '\e[36;4m'\$(__git_ps1)'\e[0m';"
     fi
     case "$TERM" in
     xterm*|rxvt*)
