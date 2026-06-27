@@ -11,8 +11,8 @@
     email = markbt@efaref.net
     name = Mark Juggurnauth-Thomas
 [core]
-	excludesfile = /home/mark/.gitignore
-    pager = sp
+    excludesfile = /home/mark/.gitignore
+#   pager = sp
     editor = vim
 [push]
-	default = simple
+    default = simple
